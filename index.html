@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080812">
+<meta name="description" content="Umar Tursunov — Bo‘lajak Full Stack dasturchi. Shaxsiy portfolio va loyihalar.">
+<title>Umar Tursunov | Developer Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080812;--panel:#11111f;--text:#f7f6ff;--muted:#a5a4bd;--purple:#a16aff;--blue:#4dc9ff;--border:rgba(255,255,255,.09)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.7;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.container{width:min(1120px,90%);margin:auto}
+.glow{position:fixed;width:400px;height:400px;border-radius:50%;filter:blur(130px);opacity:.16;pointer-events:none;z-index:-1}
+.glow.one{background:#883cff;top:-180px;left:-180px}
+.glow.two{background:#007bff;right:-200px;top:45%}
+header{position:fixed;z-index:100;top:0;left:0;width:100%;background:rgba(8,8,18,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.navbar{min-height:76px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo{font:700 25px "Space Grotesk",sans-serif;letter-spacing:-1px}
+.logo span{color:var(--purple)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-size:13px;color:var(--muted);transition:.25s}
+.nav-links a:hover{color:white}
+.nav-contact{border:1px solid #8251c9;border-radius:10px;padding:9px 16px;font-size:13px}
+.menu-toggle{display:none;background:none;border:1px solid var(--border);color:white;border-radius:8px;padding:5px 12px;font-size:22px}
+.hero{min-height:100vh;padding:145px 0 85px;display:flex;align-items:center}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:65px}
+.badge{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid var(--border);background:#ffffff06;border-radius:100px;color:#d2baff;font-size:12px;margin-bottom:27px}
+.dot{width:7px;height:7px;border-radius:50%;background:#55efa8;box-shadow:0 0 12px #55efa8}
+h1{font:700 clamp(43px,6vw,75px)/1.05 "Space Grotesk",sans-serif;letter-spacing:-3px;margin-bottom:20px}
+.gradient{background:linear-gradient(100deg,#bd91ff,#72a8ff,#55e4e4);background-clip:text;-webkit-background-clip:text;color:transparent}
+.hero h2{font-size:clamp(17px,2vw,23px);font-weight:500;margin-bottom:15px}
+.description{max-width:500px;color:var(--muted);font-size:14px;line-height:2;margin-bottom:29px}
+.buttons{display:flex;gap:13px;flex-wrap:wrap}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:10px;padding:13px 20px;border-radius:11px;font-size:13px;font-weight:700;transition:.25s}
+.btn:hover{transform:translateY(-3px)}
+.primary{background:linear-gradient(110deg,#9854ff,#596cff);box-shadow:0 8px 30px #7553ff30}
+.secondary{border:1px solid var(--border);background:#ffffff05}
+.socials{display:flex;gap:12px;margin-top:30px}
+.socials a{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--border);border-radius:11px;font-size:12px;font-weight:700;color:#c5c4d9;transition:.25s}
+.socials a:hover{border-color:var(--purple);transform:translateY(-3px)}
+.visual{position:relative;width:100%;max-width:420px;justify-self:end}
+.photo-frame{padding:9px;border-radius:28px;background:linear-gradient(145deg,#a16aff,#25224b,#4dc9ff);box-shadow:0 0 70px #704cff20;animation:float 5s ease-in-out infinite}
+.photo-inner{position:relative;overflow:hidden;aspect-ratio:4/4.7;border-radius:21px;background:#171727}
+.photo-inner img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-shade{position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#080812e8)}
+.photo-caption{position:absolute;bottom:20px;left:22px;z-index:2}
+.photo-caption small{font-size:10px;letter-spacing:3px;color:#d0b3ff}
+.photo-caption h3{font:600 22px "Space Grotesk",sans-serif;margin-top:5px}
+.float-card{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;padding:12px 15px;background:#151527ed;border:1px solid #ffffff19;backdrop-filter:blur(15px);border-radius:14px;box-shadow:0 15px 40px #0004;animation:float 4s ease-in-out infinite}
+.float-card strong{display:block;font-size:11px}
+.float-card small{display:block;font-size:10px;color:var(--muted)}
+.float-icon{font-size:22px}
+.card-top{top:15%;left:-45px}
+.card-bottom{right:-30px;bottom:14%;animation-delay:-2s}
+.section{padding:95px 0}
+.section-heading{text-align:center;margin-bottom:42px}
+.tag{font-size:11px;letter-spacing:3px;color:#bd95ff;font-weight:700;text-transform:uppercase}
+.section-heading h2{font:700 clamp(30px,4vw,43px)/1.3 "Space Grotesk",sans-serif;letter-spacing:-1.5px;margin:12px 0}
+.section-heading p{font-size:13px;color:var(--muted)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.panel{padding:28px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(145deg,#ffffff09,#ffffff02)}
+.panel h3{font:600 21px "Space Grotesk",sans-serif;margin-bottom:13px}
+.panel p{font-size:13px;color:var(--muted);line-height:2}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.stat{padding:16px;border:1px solid var(--border);border-radius:12px;background:#ffffff04}
+.stat strong{display:block;color:#c19dff;font:700 23px "Space Grotesk",sans-serif}
+.stat span{font-size:10px;color:var(--muted)}
+.skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+.skill{padding:8px 12px;border:1px solid #a16aff35;background:#a16aff0c;color:#dac8ff;border-radius:8px;font-size:11px}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.project{overflow:hidden;border:1px solid var(--border);background:var(--panel);border-radius:18px;transition:.3s}
+.project:hover{transform:translateY(-7px);border-color:#a16aff80}
+.project-art{height:160px;display:grid;place-items:center;font-size:53px;background:radial-gradient(circle at 25% 25%,#a16aff35,transparent 48%),linear-gradient(135deg,#19192d,#10101a);border-bottom:1px solid var(--border)}
+.project-body{padding:22px}
+.project-body h3{font-size:16px;margin-bottom:9px}
+.project-body p{font-size:12px;line-height:1.9;color:var(--muted);margin-bottom:16px}
+.project-link{font-size:12px;font-weight:700;color:#c5a3ff}
+.project-link:hover{color:white}
+.contact-box{max-width:750px;margin:auto;padding:45px 28px;text-align:center;border:1px solid #a16aff35;background:radial-gradient(circle at 50% 0%,#a16aff20,transparent 65%),var(--panel);border-radius:24px}
+.contact-box h2{font:700 clamp(28px,4vw,40px)/1.3 "Space Grotesk",sans-serif;margin:12px 0}
+.contact-box p{max-width:470px;margin:0 auto 24px;color:var(--muted);font-size:13px}
+footer{border-top:1px solid var(--border);padding:24px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:15px}
+footer p{font-size:10px;color:var(--muted)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@media(max-width:900px){.hero-grid{gap:35px}.card-top{left:-20px}.card-bottom{right:-15px}.projects-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){
+.navbar{min-height:68px}.menu-toggle{display:block}
+.nav-links{position:absolute;top:68px;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:0;padding:10px 5%;background:#090914f7;border-bottom:1px solid var(--border)}
+.nav-links.open{display:flex}.nav-links a{padding:13px 4px;border-bottom:1px solid var(--border)}
+.nav-contact{display:none}
+.hero{min-height:auto;padding:120px 0 65px}
+.hero-grid{grid-template-columns:1fr;gap:48px}
+.hero-copy{order:1}.visual{order:2;justify-self:center;width:86%;max-width:340px;margin:0 auto}
+h1{font-size:clamp(43px,12vw,61px);letter-spacing:-2px}
+.description{font-size:13px}
+.section{padding:70px 0}
+.about-grid,.projects-grid{grid-template-columns:1fr}
+.panel{padding:23px}.contact-box{padding:35px 20px}
+.footer-inner{flex-direction:column;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="glow one"></div><div class="glow two"></div>
+<header>
+<div class="container navbar">
+<a href="#home" class="logo">UMAR<span>.</span></a>
+<nav class="nav-links" id="navLinks">
+<a href="#home">Bosh sahifa</a><a href="#about">Men haqimda</a><a href="#projects">Loyihalar</a><a href="#contact">Bog‘lanish</a>
+</nav>
+<a href="#contact" class="nav-contact">Bog‘lanish ↗</a>
+<button class="menu-toggle" id="menuToggle" aria-label="Menyuni ochish" aria-expanded="false">☰</button>
+</div>
+</header>
+<main>
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div class="hero-copy reveal">
+<div class="badge"><span class="dot"></span>Dasturlash olamiga ilk qadam</div>
+<h1>UMAR<br><span class="gradient">TURSUNOV</span></h1>
+<h2>Bo‘lajak Full Stack dasturchi 🚀</h2>
+<p class="description">Zamonaviy web-saytlar va foydali raqamli mahsulotlar yaratishga intilaman. Har bir loyiha — yangi bilim, yangi tajriba va katta maqsadlar sari yana bir qadam.</p>
+<div class="buttons"><a href="#projects" class="btn primary">Loyihalarim ↗</a><a href="#contact" class="btn secondary">Bog‘lanish →</a></div>
+<div class="socials"><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GH</a><a href="https://t.me/" target="_blank" rel="noopener noreferrer">TG</a><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">IG</a></div>
+</div>
+<div class="visual reveal">
+<div class="float-card card-top"><span class="float-icon">💻</span><div><strong>Web Development</strong><small>Doimiy o‘rganish</small></div></div>
+<div class="photo-frame"><div class="photo-inner">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=85" alt="Kompyuterda ishlayotgan dasturchi">
+<div class="photo-shade"></div><div class="photo-caption"><small>MY JOURNEY</small><h3>Dream. Build. Repeat.</h3></div>
+</div></div>
+<div class="float-card card-bottom"><span class="float-icon">⚡</span><div><strong>Never Stop Learning</strong><small>O‘sish sari harakat</small></div></div>
+</div>
+</div>
+</section>
+<section class="section" id="about">
+<div class="container">
+<div class="section-heading reveal"><span class="tag">Men haqimda</span><h2>G‘oyadan <span class="gradient">natijagacha.</span></h2><p>Maqsadim — bilimlarim orqali foydali loyihalar yaratish.</p></div>
+<div class="about-grid">
+<div class="panel reveal"><h3>Men haqimda 👨‍💻</h3><p>Men Umar Tursunovman. Dasturlash, zamonaviy texnologiyalar va yangi g‘oyalarni amaliy loyihalarga aylantirishga qiziqaman. Maqsadim — Full Stack dasturchi bo‘lib yetishish va insonlarga foyda keltiradigan mahsulotlar yaratish.</p><div class="stats"><div class="stat"><strong>01</strong><span>O‘rganishdan boshlash</span></div><div class="stat"><strong>∞</strong><span>Yangi g‘oyalar</span></div></div></div>
+<div class="panel reveal"><h3>Texnologiyalar ⚙️</h3><p>Har bir texnologiyani amaliy mashqlar va loyihalar orqali o‘rganib, tajribamni bosqichma-bosqich oshirib boraman.</p><div class="skills"><span class="skill">HTML5</span><span class="skill">CSS3</span><span class="skill">JavaScript</span><span class="skill">Responsive Design</span><span class="skill">GitHub</span><span class="skill">Python — rejalashtirilgan</span></div></div>
+</div>
+</div>
+</section>
+<section class="section" id="projects">
+<div class="container">
+<div class="section-heading reveal"><span class="tag">Portfolio</span><h2>Mening <span class="gradient">loyihalarim.</span></h2><p>G‘oyalarimni amaliy loyihalarga aylantirish yo‘lida.</p></div>
+<div class="projects-grid">
+<article class="project reveal"><div class="project-art">🌐</div><div class="project-body"><h3>TarjimaPro</h3><p>Inglizcha va o‘zbekcha tarjima uchun mo‘ljallangan loyiha.</p><a class="project-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">Loyihani ko‘rish ↗</a></div></article>
+<article class="project reveal"><div class="project-art">🧠</div><div class="project-body"><h3>Math Challenge</h3><p>Matematik fikrlash va hisoblashni mashq qilish o‘yini.</p><a class="project-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">Loyihani ko‘rish ↗</a></div></article>
+<article class="project reveal"><div class="project-art">📦</div><div class="project-body"><h3>Inventory System</h3><p>Mahsulotlar, ombor qoldig‘i va savdoni boshqarish g‘oyasi.</p><a class="project-link" href="https://github.com/" target="_blank" rel="noopener noreferrer">Loyihani ko‘rish ↗</a></div></article>
+</div>
+</div>
+</section>
+<section class="section" id="contact">
+<div class="container"><div class="contact-box reveal"><span class="tag">Bog‘lanish</span><h2>Birgalikda nimadir <span class="gradient">yaratamizmi?</span></h2><p>Taklif, savol yoki loyiha g‘oyangiz bormi? Telegram orqali bog‘lanishingiz mumkin.</p><a class="btn primary" href="https://t.me/" target="_blank" rel="noopener noreferrer">Telegram orqali bog‘lanish ↗</a></div></div>
+</section>
+</main>
+<footer><div class="container footer-inner"><a href="#home" class="logo">UMAR<span>.</span></a><p>© <span id="year"></span> Umar Tursunov. Barcha huquqlar himoyalangan.</p><p>Hammasiga erishish o‘z qo‘lingda. ✨</p></div></footer>
+<script>
+const toggle=document.getElementById('menuToggle');
+const nav=document.getElementById('navLinks');
+toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'✕':'☰'});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}));
+document.getElementById('year').textContent=new Date().getFullYear();
+if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'))}
+</script>
+</body>
+</html>
